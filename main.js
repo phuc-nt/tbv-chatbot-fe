@@ -1,5 +1,7 @@
 const { createApp, ref } = Vue;
 const md = markdownit({ html: true, linkify: true, typographer: true });
+const API_DOMAIN = 'https://chatbot-be-1-bqclxlq65q-et.a.run.app';
+// const API_DOMAIN = 'http://127.0.0.1:8080';
 
 createApp({
     setup() {
@@ -31,7 +33,7 @@ createApp({
             try {
                 isLoading.value = true;
 
-                const response = await fetch('https://chatbot-be-1-bqclxlq65q-et.a.run.app/api/chat', {
+                const response = await fetch(`${API_DOMAIN}/api/chat`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
